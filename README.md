@@ -17,5 +17,29 @@ Swagger documentation is available for the API endpoints. You can access it by n
 ## Docker Solution
 The project includes a Dockerfile and docker-copmpose.yaml to build a Docker image and run the application. You can build and run the Docker container using the following commands:
 ```
-docker-compose up --build
+docker-compose up
 ```
+
+## Tests
+The project includes unit tests for the SearchHandler. You can run the tests using the following command:
+```
+make test
+```
+Also, the unit tests can be run using the docker compose while running the application or isolated using the following command:
+```
+docker-compose run test
+```
+## How to Run the Project
+1. Clone the repository:  
+```
+git clone <repository-url>
+cd go-api-assessment/build
+``` 
+2. Build and run the project:  
+```
+docker-compose up
+```
+3. Access the API: 
+Open your browser and navigate to http://localhost:8080/endpoint/{value} to use the API.  
+4.Access Swagger documentation: 
+Open your browser and navigate to http://localhost:8080/docs/ to view the Swagger documentation.
