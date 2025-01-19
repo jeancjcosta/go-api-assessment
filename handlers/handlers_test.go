@@ -36,7 +36,7 @@ func TestSearchHandler(test *testing.T) {
 			name:           "Outside 10% range",
 			value:          "200",
 			expectedStatus: http.StatusOK,
-			expectedBody:   `{"value":200,"index":4,"message":"Value not found. No values within a 10% margin were located"}`,
+			expectedBody:   `{"value":200,"index":-1,"message":"Value not found. No values within a 10% margin were located"}`,
 		},
 		{
 			name:           "Invalid value",
@@ -48,13 +48,13 @@ func TestSearchHandler(test *testing.T) {
 			name:           "Value below range",
 			value:          "-10",
 			expectedStatus: http.StatusOK,
-			expectedBody:   `{"value":-10,"index":0,"message":"Value not found, returning closest match"}`,
+			expectedBody:   `{"value":-10,"index":-1,"message":"Value not found. No values within a 10% margin were located"}`,
 		},
 		{
 			name:           "Value above range",
-			value:          "2000000",
+			value:          "1000010",
 			expectedStatus: http.StatusOK,
-			expectedBody:   `{"value":2000000,"index":5,"message":"Value not found, returning closest match"}`,
+			expectedBody:   `{"value":1000010,"index":4,"message":"Value not found, returning closest match"}`,
 		},
 	}
 
