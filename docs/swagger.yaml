@@ -1,0 +1,39 @@
+definitions:
+  models.Response:
+    properties:
+      index:
+        type: integer
+      message:
+        type: string
+      value:
+        type: integer
+    type: object
+info:
+  contact: {}
+paths:
+  /endpoint/{value}:
+    get:
+      description: Get a value by its identifier
+      parameters:
+      - description: Value Identifier
+        in: path
+        name: value
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+      summary: Search for a value
+      tags:
+      - search
+swagger: "2.0"

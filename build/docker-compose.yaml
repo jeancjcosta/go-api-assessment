@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: build/Dockerfile
+    image: jeancjcosta/go-api-assignment
+    container_name: go-api-assignment
+    ports:
+      - "8080:8080"
+    volumes:
+      - ..:/app
+    environment:
+      - GO_ENV=development
+
+  test:
+    build:
+      context: ..
+      dockerfile: build/Dockerfile
+    image: jeancjcosta/go-api-assignment-test
+    container_name: go-api-assignment-test
+    volumes:
+      - ..:/app
+    command: [ "go", "test", "./..." ]

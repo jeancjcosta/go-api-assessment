@@ -1,0 +1,62 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/endpoint/{value}": {
+            "get": {
+                "description": "Get a value by its identifier",
+                "tags": [
+                    "search"
+                ],
+                "summary": "Search for a value",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Value Identifier",
+                        "name": "value",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Response": {
+            "type": "object",
+            "properties": {
+                "index": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}
