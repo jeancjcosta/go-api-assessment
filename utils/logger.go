@@ -12,6 +12,8 @@ func InitLogger(logLevel string) {
 		logFlags = log.Ldate | log.Ltime | log.Lshortfile
 	case "info":
 		logFlags = log.Ldate | log.Ltime
+	case "error":
+		logFlags = log.Ldate | log.Ltime | log.Lshortfile
 	default:
 		logFlags = log.Ldate | log.Ltime
 	}
