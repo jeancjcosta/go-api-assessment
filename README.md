@@ -41,5 +41,5 @@ docker-compose up
 ```
 3. Access the API: 
 Open your browser and navigate to http://localhost:8080/endpoint/{value} to use the API.  
-4.Access Swagger documentation: 
+4. Access Swagger documentation: 
 Open your browser and navigate to http://localhost:8080/docs/ to view the Swagger documentation.
